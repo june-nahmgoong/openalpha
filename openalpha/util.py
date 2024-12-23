@@ -3,15 +3,14 @@ import random
 import io
 from google.cloud import storage
 
-def normalize_weight(universe:str, weight_array:np.array, universe_array:np.array, return_array:np.array):
+def normalize_weight(weight_array:np.array, universe_array:np.array, return_array:np.array):
 
     T,N = return_array.shape
     assert weight_array.shape == (N,)
     assert universe_array.shape == (T,N)
 
     filter = universe_array[-1,:].astype(float)
-    filter[filter == 0] = np.nan
-    
+    filter[filter == 0] = np.nan    
     weight_array = weight_array * filter
 
     weight_array = weight_array - np.nanmean(weight_array)

@@ -3,21 +3,21 @@ import random
 import io
 from google.cloud import storage
 
-def normalize_weight(universe:str, weight_array:np.array, universe_array:np.array, return_array:np.array):
+def normalize_weight(weight_array:np.array, universe_array:np.array, return_array:np.array):
 
     T,N = return_array.shape
     assert weight_array.shape == (N,)
     assert universe_array.shape == (T,N)
 
     filter = universe_array[-1,:].astype(float)
-    filter[filter == 0] = np.nan
-    
     weight_array = weight_array * filter
-
-    weight_array = weight_array - np.nanmean(weight_array)
-    weight_array = weight_array / np.nansum(abs(weight_array))
     weight_array = np.nan_to_num(weight_array)
 
+    cov = np.cov(return_array, rowvar=False)
+    vol = np.sqrt(np.matmul(np.matmul(cov, weight_array), weight_array) * 52)
+    target_vol = 0.1 
+
+    weight_array = weight_array * target_vol / vol
     return weight_array
 
 def get_sample_feature_dict(universe:str)->dict:

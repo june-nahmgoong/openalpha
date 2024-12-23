@@ -26,7 +26,6 @@ class Evaluator():
             feature_dict = {key:data[key] for key in ["return_array", "universe_array", "specific_feature_array", "common_feature_array"]}
             weight_array = generate(**feature_dict)
             weight_array = normalize_weight(
-                universe = self.universe,
                 weight_array = weight_array, 
                 return_array = data["return_array"],
                 universe_array = data["universe_array"],

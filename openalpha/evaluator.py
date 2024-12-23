@@ -17,16 +17,15 @@ class Evaluator():
         for blob in tqdm(blob_list):
             data = np.load(io.BytesIO(blob.download_as_bytes())) 
             self.cache.append(data)
-        print("Downloading Done!")
+        print("Done!")
         return None
 
-    def eval_generator(self, generate)->np.array:
+    def eval_generator(self, generate)->pd.Series:
         r = []
         for data in tqdm(self.cache):
             feature_dict = {key:data[key] for key in ["return_array", "universe_array", "specific_feature_array", "common_feature_array"]}
             weight_array = generate(**feature_dict)
             weight_array = normalize_weight(
-                universe = self.universe,
                 weight_array = weight_array, 
                 return_array = data["return_array"],
                 universe_array = data["universe_array"],

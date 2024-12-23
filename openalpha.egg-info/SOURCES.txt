@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+openalpha/__init__.py
+openalpha/evaluator.py
+openalpha/util.py
+openalpha.egg-info/PKG-INFO
+openalpha.egg-info/SOURCES.txt
+openalpha.egg-info/dependency_links.txt
+openalpha.egg-info/top_level.txt

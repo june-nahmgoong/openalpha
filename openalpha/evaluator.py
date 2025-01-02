@@ -43,7 +43,7 @@ class Evaluator():
                 return_array = return_array, 
                 universe_array = universe_array,
                 )
-            r.append(sum(future_return_array * weight_array))
+            ret.append(sum(future_return_array * weight_array))
 
             ########################
 
@@ -54,7 +54,7 @@ class Evaluator():
             return_array = return_array[:,idx_list]
             universe_array = universe_array[:,idx_list]
             specific_feature_array = specific_feature_array[:,idx_list,:]
-            future_return_array = future_return_array[:,idx_list]
+            future_return_array = future_return_array[idx_list]
 
             weight_array = strategy(
                 return_array = return_array,

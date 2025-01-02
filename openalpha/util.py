@@ -19,7 +19,7 @@ def normalize_weight(weight_array:np.array, universe_array:np.array, return_arra
     weight_array = np.nan_to_num(weight_array)
 
     # leverage adjust
-    cov = np.cov(return_array)
+    cov = np.cov(return_array,rowvar=False)
     vol = np.matmul(np.matmul(cov,weight_array),weight_array)
     vol = np.sqrt(vol * 52)
     weight_array = weight_array / vol * 0.05 

@@ -1,9 +1,17 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "openalpha"
-version = "0.1.1"
-authors = [
-  { name="OpenAlpha", email="contact@openalpha.net" },
+version = "0.1.2"
+dependencies = [
+  "numpy",
+  "pandas",
+  "tqdm",
+  "google-cloud-storage",
 ]
+authors = [{ name="OpenAlpha", email="contact@openalpha.net" },]
 description = "OpenAlpha Utils"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -12,12 +20,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = [
-  "numpy",
-  "pandas",
-  "google-cloud-storage'",
-]
-
 
 [project.urls]
 Homepage = "https://github.com/june-nahmgoong/openalpha"

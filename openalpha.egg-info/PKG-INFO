@@ -1,10 +1,8 @@
 Metadata-Version: 2.1
 Name: openalpha
-Version: 0.1.0
+Version: 0.1.2
 Summary: OpenAlpha Utils
-Home-page: https://github.com/june-nahmgoong/openalpha
-Author: June Nahmgoong
-Author-email: June Nahmgoong <june.nahmgoong@openalpha.net>
+Author-email: OpenAlpha <contact@openalpha.net>
 Project-URL: Homepage, https://github.com/june-nahmgoong/openalpha
 Project-URL: Issues, https://github.com/june-nahmgoong/openalpha/issues
 Classifier: Programming Language :: Python :: 3
@@ -13,6 +11,10 @@ Classifier: Operating System :: OS Independent
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: google-cloud-storage
 
 # openalpha
 

@@ -27,11 +27,11 @@ class Evaluator():
         return_df = {idx:[] for idx in range(1+alt_num)}
         stime = time.time()
         for data in tqdm(self.cache):
-            return_array = data["return_array"]
-            universe_array = data["universe_array"]
-            specific_feature_array = data["specific_feature_array"]
-            common_feature_array = data["common_feature_array"]
-            future_return_array = data["future_return_array"]
+            return_array = data["return_array"].astype(float)
+            universe_array = data["universe_array"].astype(bool)
+            specific_feature_array = data["specific_feature_array"].astype(float)
+            common_feature_array = data["common_feature_array"].astype(float)
+            future_return_array = data["future_return_array"].astype(float)
 
             ########################
 

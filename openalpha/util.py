@@ -34,4 +34,10 @@ def get_sample_feature_dict(universe:str)->dict:
     blob = blob_list[0]
     data = np.load(io.BytesIO(blob.download_as_bytes())) 
     feature_dict = {key:data[key] for key in ["return_array", "universe_array", "specific_feature_array", "common_feature_array"]}
+    feature_dict = {
+        "return_array":feature_dict["return_array"].astype(float),
+        "universe_array":feature_dict["universe_array"].astype(bool),
+        "common_feature_array":feature_dict["common_feature_array"].astype(float),
+        "specific_feature_array":feature_dict["specific_feature_array"].astype(float),
+    }
     return feature_dict 
